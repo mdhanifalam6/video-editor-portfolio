@@ -1,0 +1,170 @@
+{
+  "profile": {
+    "name": "Md Hanif Alam",
+    "role": "Video Editor & Motion Designer",
+    "greeting": "Hello, I'm",
+    "tagline": "I turn raw footage into stories that move — edits, motion graphics and reels that keep people watching.",
+    "yearsExperience": 8,
+    "status": "Available for freelance projects",
+    "location": "Working worldwide",
+    "photo": "",
+    "showreelWorkId": "showreel-2026",
+    "about": [
+      "I've been editing since 2015 — starting as a freelance video editor and growing into motion design, kinetic typography and short-form content.",
+      "Every cut has a job: to hold attention, to make a feeling land, or to make an idea easy to understand. I care about rhythm, clean type and sound that sits right with the picture.",
+      "Today I work as a freelance video editor and motion designer, helping creators and brands turn their footage into reels, promos and showreels."
+    ],
+    "email": "your-email@example.com",
+    "phone": "",
+    "whatsapp": "",
+    "socials": {
+      "instagram": "",
+      "youtube": "",
+      "linkedin": "",
+      "behance": ""
+    }
+  },
+  "software": [
+    {
+      "name": "Adobe Premiere Pro",
+      "short": "Pr",
+      "level": 95,
+      "label": "Expert",
+      "use": "Editing, pacing, multicam, delivery"
+    },
+    {
+      "name": "Adobe After Effects",
+      "short": "Ae",
+      "level": 90,
+      "label": "Expert",
+      "use": "Motion graphics, kinetic type, VFX"
+    },
+    {
+      "name": "Adobe Photoshop",
+      "short": "Ps",
+      "level": 85,
+      "label": "Advanced",
+      "use": "Thumbnails, design assets, cleanup"
+    },
+    {
+      "name": "DaVinci Resolve",
+      "short": "Dr",
+      "level": 80,
+      "label": "Advanced",
+      "use": "Color grading and finishing"
+    }
+  ],
+  "services": [
+    {
+      "title": "Video Editing",
+      "text": "Story-first cuts for YouTube, promos, events and brand films."
+    },
+    {
+      "title": "Motion Graphics",
+      "text": "Animated titles, explainers, logo reveals and lower thirds."
+    },
+    {
+      "title": "Reels & Shorts",
+      "text": "Vertical edits with captions, hooks and beat-synced pacing."
+    },
+    {
+      "title": "Color & Finishing",
+      "text": "Grading, sound clean-up and export-ready delivery."
+    }
+  ],
+  "experience": [
+    {
+      "from": "2025",
+      "to": "Present",
+      "role": "Freelance Video Editor & Motion Designer",
+      "company": "Self-employed",
+      "place": "Remote",
+      "description": "Editing reels, showreels, promos and motion graphics for creators and brands."
+    },
+    {
+      "from": "2019",
+      "to": "2025",
+      "role": "Facility Manager",
+      "company": "Al Afras",
+      "place": "Saudi Arabia (KSA)",
+      "description": "Managed day-to-day facility operations at Al Afras in KSA."
+    },
+    {
+      "from": "2015",
+      "to": "2018",
+      "role": "Freelance Video Editor",
+      "company": "Self-employed",
+      "place": "Freelance",
+      "description": "Started editing professionally — client videos, events and social content."
+    }
+  ],
+  "works": [
+    {
+      "id": "showreel-2026",
+      "title": "Showreel 2026",
+      "category": "Showreel",
+      "description": "A 30-second reel of my editing and motion work — reels, events and brand edits.",
+      "video": "media/works/showreel-2026.mp4",
+      "preview": "media/works/showreel-2026-preview.mp4",
+      "poster": "media/works/showreel-2026.jpg",
+      "orientation": "landscape",
+      "year": "2026"
+    },
+    {
+      "id": "hello-im-hanif-motion",
+      "title": "Hello, I'm Hanif — Motion Intro",
+      "category": "Motion Graphics",
+      "description": "Minimal motion-design intro with UI animation, graphs and kinetic text.",
+      "video": "media/works/hello-im-hanif-motion.mp4",
+      "preview": "media/works/hello-im-hanif-motion-preview.mp4",
+      "poster": "media/works/hello-im-hanif-motion.jpg",
+      "orientation": "landscape",
+      "year": "2026"
+    },
+    {
+      "id": "shukar-manawa-kinetic",
+      "title": "Shukar Manawa — Sufi Kinetic Typography",
+      "category": "Kinetic Typography",
+      "description": "Lyric-driven kinetic typography over cinematic dance footage.",
+      "video": "media/works/shukar-manawa-kinetic.mp4",
+      "preview": "media/works/shukar-manawa-kinetic-preview.mp4",
+      "poster": "media/works/shukar-manawa-kinetic.jpg",
+      "orientation": "portrait",
+      "year": "2026"
+    },
+    {
+      "id": "sab-kuj-ditta",
+      "title": "Sab Kuj Ditta — Motion Reel",
+      "category": "Motion Graphics",
+      "description": "A 15-second vertical motion-design reel with gold type and light effects.",
+      "video": "media/works/sab-kuj-ditta.mp4",
+      "preview": "media/works/sab-kuj-ditta-preview.mp4",
+      "poster": "media/works/sab-kuj-ditta.jpg",
+      "orientation": "portrait",
+      "year": "2026"
+    },
+    {
+      "id": "karwa-chauth-promo",
+      "title": "Karwa Chauth — Product Promo Reel",
+      "category": "Reels & Ads",
+      "description": "Retail promo reel with bold Hinglish captions timed to the voice-over.",
+      "video": "media/works/karwa-chauth-promo.mp4",
+      "preview": "media/works/karwa-chauth-promo-preview.mp4",
+      "poster": "media/works/karwa-chauth-promo.jpg",
+      "orientation": "portrait",
+      "year": "2026"
+    },
+    {
+      "id": "allah-ki-nishani",
+      "title": "Allah Ki Nishani — Urdu Typography Reel",
+      "category": "Kinetic Typography",
+      "description": "Clean Urdu + English typography reel with shape animation and ticker text.",
+      "video": "media/works/allah-ki-nishani.mp4",
+      "preview": "media/works/allah-ki-nishani-preview.mp4",
+      "poster": "media/works/allah-ki-nishani.jpg",
+      "orientation": "portrait",
+      "year": "2026"
+    }
+  ],
+  "updatedAt": "2026-11-08T13:07:56.476Z"
+}

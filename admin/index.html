@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Portfolio Admin</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ============ LOGIN / SETUP ============ -->
+  <section class="auth" id="auth" hidden>
+    <form class="auth-card" id="authForm">
+      <div class="brand"><span class="brand-mark"><i></i></span> Portfolio Admin</div>
+      <h1 id="authTitle">Log in</h1>
+      <p class="muted" id="authHint">Enter your admin password to manage your portfolio.</p>
+      <label class="fld"><span>Password</span><input type="password" id="authPass" autocomplete="current-password" required minlength="8"></label>
+      <label class="fld" id="authConfirmWrap" hidden><span>Confirm password</span><input type="password" id="authConfirm" autocomplete="new-password" minlength="8"></label>
+      <button class="btn primary block" type="submit" id="authBtn">Log in</button>
+      <p class="err" id="authErr" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- ============ APP ============ -->
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark"><i></i></span> Portfolio Admin</div>
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="works" role="tab">Work</button>
+        <button class="tab" data-tab="profile" role="tab">Profile</button>
+        <button class="tab" data-tab="skills" role="tab">Skills &amp; Experience</button>
+        <button class="tab" data-tab="messages" role="tab">Messages <span class="badge" id="msgBadge" hidden></span></button>
+        <button class="tab" data-tab="settings" role="tab">Settings</button>
+      </nav>
+      <div class="top-actions">
+        <a class="btn ghost" href="/" target="_blank" rel="noopener">Preview ↗</a>
+        <button class="btn primary" id="publishBtn" title="Upload your changes to GitHub Pages">Publish to GitHub <span class="badge dark" id="pubBadge" hidden></span></button>
+        <button class="btn ghost" id="logoutBtn">Log out</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- ---------- WORKS ---------- -->
+      <section class="panel" data-panel="works">
+        <div class="panel-head">
+          <div><h2>Your work</h2><p class="muted">Add your best videos. Drag rows (or use ↑ ↓) to change the order on the site. Changes save on this computer instantly — press <strong>Publish to GitHub</strong> to put them online.</p></div>
+        </div>
+
+        <form class="card add-card" id="addForm">
+          <h3>Add new work</h3>
+          <div class="drop" id="drop">
+            <input type="file" id="videoInput" accept="video/mp4,video/webm,.mp4,.m4v,.webm" hidden>
+            <div class="drop-empty">
+              <strong>Drop a video here</strong>
+              <span class="muted">or <button type="button" class="link" id="pickVideo">choose a file</button> · MP4 or WEBM · big files are compressed for the web automatically</span>
+            </div>
+            <div class="drop-file" hidden>
+              <video id="localPreview" muted playsinline></video>
+              <div><strong id="fileName"></strong><span class="muted" id="fileMeta"></span></div>
+              <button type="button" class="btn ghost sm" id="clearVideo">Change</button>
+            </div>
+          </div>
+          <div class="grid2">
+            <label class="fld"><span>Title *</span><input id="wTitle" required maxlength="120" placeholder="e.g. Wedding Teaser — Riya & Arman"></label>
+            <label class="fld"><span>Category *</span><input id="wCategory" required maxlength="40" list="catList" placeholder="e.g. Reels & Ads"><datalist id="catList"></datalist></label>
+            <label class="fld"><span>Year</span><input id="wYear" maxlength="10" placeholder="2026"></label>
+            <label class="fld"><span>Thumbnail (optional)</span><input type="file" id="wThumb" accept="image/jpeg,image/png,image/webp"></label>
+          </div>
+          <label class="fld"><span>Short description</span><textarea id="wDesc" rows="2" maxlength="300" placeholder="One line about the project — what you did."></textarea></label>
+          <div class="poster-pick" id="posterPick" hidden>
+            <span class="muted">Thumbnail frame (if you don't upload one):</span>
+            <input type="range" id="posterTime" min="0" max="10" step="0.1" value="1">
+            <span class="mono" id="posterTimeLabel">1.0s</span>
+          </div>
+          <div class="progress" id="upProgress" hidden><i></i><span></span></div>
+          <div class="row-end"><button class="btn primary" type="submit" id="addBtn">Upload &amp; publish</button></div>
+        </form>
+
+        <div class="works-list" id="worksList"></div>
+      </section>
+
+      <!-- ---------- PROFILE ---------- -->
+      <section class="panel" data-panel="profile" hidden>
+        <div class="panel-head">
+          <div><h2>Profile</h2><p class="muted">Your name, intro, photo and contact details.</p></div>
+          <button class="btn primary" data-save>Save changes</button>
+        </div>
+        <div class="profile-grid">
+          <div class="card photo-card">
+            <h3>Photo</h3>
+            <div class="photo-box" id="photoBox"></div>
+            <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" hidden>
+            <div class="row">
+              <button class="btn ghost sm" id="photoPick" type="button">Upload photo</button>
+              <button class="btn ghost sm danger" id="photoRemove" type="button">Remove</button>
+            </div>
+            <p class="muted small">Tip: a portrait (4:5) photo with a clean background looks best.</p>
+          </div>
+          <div class="card">
+            <h3>Intro</h3>
+            <div class="grid2">
+              <label class="fld"><span>Name</span><input data-p="name"></label>
+              <label class="fld"><span>Role</span><input data-p="role"></label>
+              <label class="fld"><span>Greeting</span><input data-p="greeting"></label>
+              <label class="fld"><span>Years of experience</span><input data-p="yearsExperience" type="number" min="0" max="60"></label>
+              <label class="fld"><span>Status line</span><input data-p="status"></label>
+              <label class="fld"><span>Location</span><input data-p="location"></label>
+            </div>
+            <label class="fld"><span>Tagline</span><textarea data-p="tagline" rows="2"></textarea></label>
+            <label class="fld"><span>About me (leave an empty line between paragraphs)</span><textarea data-p="about" rows="7"></textarea></label>
+            <label class="fld"><span>"Play showreel" button opens</span><select data-p="showreelWorkId" id="showreelSelect"></select></label>
+          </div>
+          <div class="card">
+            <h3>Contact &amp; social</h3>
+            <div class="grid2">
+              <label class="fld"><span>Email</span><input data-p="email" type="email"></label>
+              <label class="fld"><span>WhatsApp (with country code)</span><input data-p="whatsapp" placeholder="+91 98xxxxxxx"></label>
+              <label class="fld"><span>Phone</span><input data-p="phone"></label>
+              <label class="fld"><span>Instagram URL</span><input data-p="socials.instagram" placeholder="https://instagram.com/…"></label>
+              <label class="fld"><span>YouTube URL</span><input data-p="socials.youtube" placeholder="https://youtube.com/@…"></label>
+              <label class="fld"><span>LinkedIn URL</span><input data-p="socials.linkedin"></label>
+              <label class="fld"><span>Behance URL</span><input data-p="socials.behance"></label>
+            </div>
+            <h3 style="margin-top:10px">Contact form on static hosting (optional)</h3>
+            <p class="muted small">On simple hosting there is no server to store messages. Create a free form at Formspree or Web3Forms and paste its details here — messages will then arrive in your email. Leave empty to open the visitor's email app instead.</p>
+            <div class="grid2">
+              <label class="fld"><span>Form endpoint URL</span><input data-p="formEndpoint" placeholder="https://formspree.io/f/xxxxxxx"></label>
+              <label class="fld"><span>Access key (Web3Forms only)</span><input data-p="formAccessKey" placeholder="leave empty for Formspree"></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- SKILLS & EXPERIENCE ---------- -->
+      <section class="panel" data-panel="skills" hidden>
+        <div class="panel-head">
+          <div><h2>Skills &amp; experience</h2><p class="muted">Software, services and your work history.</p></div>
+          <button class="btn primary" data-save>Save changes</button>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Software proficiency</h3><button class="btn ghost sm" data-add="software">+ Add software</button></div>
+          <div class="rows" id="softwareRows"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Working experience</h3><button class="btn ghost sm" data-add="experience">+ Add job</button></div>
+          <div class="rows" id="experienceRows"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Services (what I do)</h3><button class="btn ghost sm" data-add="services">+ Add service</button></div>
+          <div class="rows" id="servicesRows"></div>
+        </div>
+      </section>
+
+      <!-- ---------- MESSAGES ---------- -->
+      <section class="panel" data-panel="messages" hidden>
+        <div class="panel-head"><div><h2>Messages</h2><p class="muted">Enquiries sent from the contact form on your site.</p></div></div>
+        <div id="messagesList" class="messages"></div>
+      </section>
+
+      <!-- ---------- SETTINGS ---------- -->
+      <section class="panel" data-panel="settings" hidden>
+        <div class="panel-head"><div><h2>Settings</h2></div></div>
+        <form class="card narrow" id="pwForm">
+          <h3>Change password</h3>
+          <label class="fld"><span>Current password</span><input type="password" id="pwCur" required autocomplete="current-password"></label>
+          <label class="fld"><span>New password (min 8 characters)</span><input type="password" id="pwNew" required minlength="8" autocomplete="new-password"></label>
+          <div class="row-end"><button class="btn primary" type="submit">Update password</button></div>
+        </form>
+        <div class="card narrow">
+          <h3>GitHub publishing</h3>
+          <p class="muted" id="ghState">Checking…</p>
+        </div>
+        <div class="card narrow">
+          <h3>Backups</h3>
+          <p class="muted">Every save keeps a copy of the previous data in <code>private/backups/</code> (last 25 saves).</p>
+          <p class="muted">Video previews: <strong id="ffmpegState">checking…</strong></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="admin.js"></script>
+</body>
+</html>

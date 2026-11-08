@@ -1,0 +1,13 @@
+{
+  "name": "md-hanif-alam-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website of Md Hanif Alam — Video Editor & Motion Designer, with an admin panel to upload and remove work.",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
