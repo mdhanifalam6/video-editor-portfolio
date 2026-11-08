@@ -2,23 +2,27 @@
 
 Video Editor & Motion Designer portfolio. Theme: **orange + teal**. Banaya gaya hai **HTML, CSS, JavaScript** se. Isme ek **admin panel** bhi hai, jisse aap baad mein apna kaam upload, edit aur remove kar sakte ho.
 
+**Live site:** https://mdhanifalam6.github.io/video-editor-portfolio/
+**GitHub repo:** https://github.com/mdhanifalam6/video-editor-portfolio
+
 ---
 
-## 1. Website chalana (apne computer par)
+## 1. Kaam upload / remove karne ka tareeka (har baar)
 
-Zaroorat: [Node.js](https://nodejs.org) 18 ya usse naya version. Aapke PC par Node pehle se installed hai.
+Website GitHub Pages par static hai, isliye admin panel **aapke PC par** chalta hai. Changes karne ke baad ek button se online chale jaate hain.
 
-```bash
-cd "F:\AI VIDEO EDITOR\portfolio-website"
-node server.js
-```
+1. Server chalao:
+   ```bash
+   cd "F:\AI VIDEO EDITOR\portfolio-website"
+   node server.js
+   ```
+2. Browser mein **http://localhost:3000/admin** kholo aur login karo. Pehli baar password banana padega (8+ characters).
+3. Video add karo, edit karo, delete karo, ya order badlo. Profile, photo, skills, experience bhi yahin se badlo.
+4. Upar **Publish to GitHub** dabao. Lagbhag 1 minute mein live site update ho jaati hai.
 
-Phir browser mein kholo:
+Publish button ke paas ka orange number batata hai ki kitne changes abhi online nahi gaye hain.
 
-- Website: http://localhost:3000
-- Admin panel: http://localhost:3000/admin
-
-Pehli baar admin kholne par **password banana** padega (kam se kam 8 characters).
+Publish andar se `git add`, `git commit` aur `git push` chalata hai, isliye is PC par GitHub login (`gh auth login`) bana rehna chahiye. Abhi `mdhanifalam6` account logged in hai.
 
 ---
 
@@ -26,56 +30,44 @@ Pehli baar admin kholne par **password banana** padega (kam se kam 8 characters)
 
 | Tab | Kaam |
 | --- | --- |
-| **Work** | Naya video upload (drag & drop), title / category / description, thumbnail. Edit, delete, aur ↑ ↓ ya drag karke order badlo. Upload hote hi site par live ho jata hai. |
-| **Profile** | Apni **photo** upload karo, naam, tagline, about, years of experience, email, WhatsApp, Instagram / YouTube links, aur "Play showreel" button kaunsa video chalaye. |
-| **Skills & Experience** | Software list (Premiere Pro, After Effects…), job history (2015–2018…), services. Add / remove / reorder. |
-| **Messages** | Website ke contact form se aaye messages. Reply by email ka button bhi hai. |
-| **Settings** | Password badlo. |
+| **Work** | Naya video upload (drag & drop), title / category / description, thumbnail. Edit, delete, aur ↑ ↓ ya drag karke order badlo. |
+| **Profile** | Apni **photo**, naam, tagline, about, years of experience, email, WhatsApp, social links, aur "Play showreel" button kaunsa video chalaye. Contact form service ki setting bhi yahin hai (neeche section 4 dekho). |
+| **Skills & Experience** | Software list, job history, services. Add / remove / reorder. |
+| **Messages** | Sirf local server par aaye messages (GitHub Pages par form email se kaam karta hai, section 4 dekho). |
+| **Settings** | Password badlo, GitHub connection aur live link dekho. |
 
 **Upload ke waqt apne-aap kya hota hai:**
 
-- Thumbnail video ke frame se ban jata hai. Slider se frame chun sakte ho, ya apni image upload karo.
+- Thumbnail video ke frame se ban jata hai (slider se frame chuno), ya apni image do.
 - Video vertical (9:16) hai ya horizontal (16:9), ye apne-aap pata chal jata hai.
-- Agar computer par **ffmpeg** installed hai (aapke PC par hai), to ek chhota 8-second ka hover-preview ban jata hai. Isse website fast rehti hai.
-- Kisi kaam ko delete karne par uski video aur thumbnail files bhi server se hat jaati hain.
+- **ffmpeg** (aapke PC par installed hai) se:
+  - ek chhota 8-second ka hover-preview banta hai
+  - 40 MB se badi video 1080p web MP4 mein compress hoti hai
+- GitHub **100 MB se badi file nahi leta**. Publish aisi file ko rok dega aur uska naam bata dega.
+- Kisi kaam ko delete karne par uski video aur thumbnail files bhi hat jaati hain.
 - Har save se pehle purana data `private/backups/` mein save hota hai (aakhri 25 saves).
 
-**Tips:**
-
-- Videos ko MP4 (H.264) mein export karo, 1080p ya 720p. Isse website jaldi load hoti hai.
-- Password bhool gaye? `private/auth.json` delete karo aur admin dobara kholo. Phir naya password set kar paoge.
+**Password bhool gaye?** `private/auth.json` delete karke admin dobara kholo, phir naya password set kar paoge.
 
 ---
 
-## 3. Abhi ke liye kya badalna hai (zaroori)
+## 3. Abhi kya baaki hai
 
-1. **Email:** abhi `your-email@example.com` likha hai. Admin → Profile mein apna email daalo.
-2. **Photo:** abhi "MH" monogram dikh raha hai. Admin → Profile → Upload photo (4:5 portrait best rahega).
-3. **WhatsApp / Instagram / YouTube** links daalo. Jo khaali chhodoge, wo site par nahi dikhenge.
-4. Sample projects ke **titles aur descriptions** check karo. Ye aapke workspace ki videos se banaye gaye hain, admin mein edit kar sakte ho.
-5. Skill levels (95 / 90 / 85 / 80) aur job descriptions default rakhe gaye hain, apne hisaab se badlo.
+1. **Photo:** abhi "MH" monogram dikh raha hai. Admin → Profile → Upload photo (4:5 portrait best), phir Publish.
+2. **Instagram / YouTube / LinkedIn / Behance** links daalo. Jo khaali chhodoge, wo site par nahi dikhenge.
+3. Sample projects ke **titles aur descriptions**, skill levels (95 / 90 / 85 / 80) aur job descriptions check karke apne hisaab se badlo.
 
 ---
 
-## 4. Website online kaise daalein
+## 4. Contact form (GitHub Pages par)
 
-### Option A — Node.js hosting (admin bhi online chalega) ✅ recommended
-Hostinger (Business / Cloud plan, "Node.js web app"), Render, Railway ya koi VPS.
+GitHub Pages par message save karne ke liye koi server nahi hota. Isliye do tareeke hain:
 
-- Poora `portfolio-website` folder upload karo.
-- Start command: `node server.js` (ya `npm start`).
-- Port apne-aap `PORT` environment variable se le liya jata hai.
-- Phir `https://aapka-domain.com/admin` se kahin se bhi kaam upload / remove kar sakte ho.
-- **HTTPS zaroor on rakho**, kyunki admin password usi par safe rehta hai.
-
-### Option B — Simple / static hosting (Hostinger shared, Netlify, GitHub Pages)
-Is option mein admin online nahi chalega:
-
-1. Apne PC par `node server.js` chalao aur admin se kaam add / remove karo.
-2. Phir sirf **`public/` folder** ke andar ki files hosting par upload karo (Hostinger File Manager → `public_html`).
-3. Har update ke baad `public/data/portfolio.json` aur `public/media/` dobara upload karo.
-
-Static hosting par contact form visitor ka **email app** khol deta hai, kyunki wahan message save karne ke liye server nahi hota.
+- **Default:** "Send message" dabane par visitor ka email app khulta hai, aur message aapke email par jaata hai.
+- **Behtar (free):**
+  1. [Formspree](https://formspree.io) ya [Web3Forms](https://web3forms.com) par free form banao.
+  2. Admin → Profile → *Form endpoint URL* mein uska URL daalo (Web3Forms ke liye *Access key* bhi).
+  3. Save → Publish. Ab messages seedhe aapke email par aayenge, visitor ko kuch nahi karna padega.
 
 ---
 
@@ -83,18 +75,17 @@ Static hosting par contact form visitor ka **email app** khol deta hai, kyunki w
 
 ```
 portfolio-website/
-├── server.js            ← Node server (website + admin + uploads + contact inbox)
-├── package.json
-├── public/              ← asli website (static host par sirf ye folder upload hota hai)
+├── server.js            ← local server: website preview + admin + uploads + Publish to GitHub
+├── docs/                ← asli website (GitHub Pages yahi folder serve karta hai)
 │   ├── index.html
 │   ├── css/style.css    ← design, colors, animations
 │   ├── js/main.js       ← hover-play, lightbox, animations, contact form
 │   ├── data/portfolio.json  ← saara content (admin isi ko edit karta hai)
 │   ├── media/works/     ← videos, previews, thumbnails
 │   └── media/profile/   ← aapki photo
-├── admin/               ← admin panel (index.html, admin.css, admin.js)
-└── private/             ← password hash, messages, backups (kabhi public mat karna)
+├── admin/               ← admin panel (sirf local, site par nahi dikhta)
+└── private/             ← password hash, messages, backups (git mein nahi jaata)
 ```
 
 ## 6. Colors badalne hain?
-`public/css/style.css` ke upar `:root` mein `--orange` aur `--teal` ki values badlo. Poori site ka rang badal jayega.
+`docs/css/style.css` ke upar `:root` mein `--orange` aur `--teal` ki values badlo, phir Publish karo.
